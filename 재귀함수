@@ -1,0 +1,20 @@
+# 콜라츠(Collatz) 함수 정의
+def c(n, cnt):
+    # 횟수가 500이 되면 -1 반환
+    if cnt==500:
+        return -1
+    # n이 1이 되면 연산 횟수(cnt)를 반환
+    if n==1:
+        return cnt
+    # n이 짝수면 2로 나누는 연산 실행 후, 연산 횟수 증가
+    if n%2==0:
+        return c(n/2, cnt+1)        
+    # n이 홀수면 연산 실행 후, 연산 횟수 증가
+    else:
+        return c(n*3+1, cnt+1)
+
+def solution(n):
+    print(c(n, 0))
+    
+n = int(input())
+solution(n)
